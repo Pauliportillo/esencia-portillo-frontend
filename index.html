@@ -39,21 +39,21 @@
 
     header { position: relative; background: var(--dark); min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 40px 60px; overflow: hidden; }
     header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(201,168,76,0.12) 0%, transparent 70%); pointer-events: none; }
-   .harp-deco {
-  position: absolute;
-  width: 320px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(3);
-  animation: harpZoomIn 3.5s ease-out forwards, harpFloat 6s ease-in-out 3.5s infinite;
-}
-.harp-deco:not(.harp-realistic) {
-  animation: harpZoomIn 3.5s ease-out forwards, harpFloat 6s ease-in-out 3.5s infinite, harpOutlineFade 10s ease-in-out 3.5s infinite;
-}
-.harp-realistic {
-  opacity: 0;
-  animation: harpZoomIn 3.5s ease-out forwards, harpFloat 6s ease-in-out 3.5s infinite, harpRealisticFade 10s ease-in-out 3.5s infinite;
-}
+    .harp-deco {
+      position: absolute;
+      width: 320px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(3);
+      animation: harpZoomIn 3.5s ease-out forwards, harpFloat 6s ease-in-out 3.5s infinite;
+    }
+    .harp-deco:not(.harp-realistic) {
+      animation: harpZoomIn 3.5s ease-out forwards, harpFloat 6s ease-in-out 3.5s infinite, harpOutlineFade 10s ease-in-out 3.5s infinite;
+    }
+    .harp-realistic {
+      opacity: 0;
+      animation: harpZoomIn 3.5s ease-out forwards, harpFloat 6s ease-in-out 3.5s infinite, harpRealisticFade 10s ease-in-out 3.5s infinite;
+    }
     .stars { position: absolute; inset: 0; pointer-events: none; }
     .stars span {
       position: absolute;
@@ -70,30 +70,31 @@
     .hero-divider { width: 60px; height: 1px; background: var(--gold); margin: 36px auto; animation: fadeUp 1s 0.7s both; }
     .hero-cta { display: inline-block; padding: 14px 40px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; transition: all 0.4s; animation: fadeUp 1s 0.9s both; }
     .hero-cta:hover { background: var(--gold); color: var(--dark); }
-.ribbon {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 5px;
-  background: rgba(201,168,76,0.15);
-  overflow: hidden;
-}
-.ribbon::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -50%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
-  animation: ribbonSweep 4s linear infinite;
-}
+    .ribbon {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: rgba(201,168,76,0.15);
+      overflow: hidden;
+    }
+    .ribbon::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+      animation: ribbonSweep 4s linear infinite;
+    }
 
-@keyframes ribbonSweep {
-  0% { left: -50%; }
-  100% { left: 100%; }
-}
+    @keyframes ribbonSweep {
+      0% { left: -50%; }
+      100% { left: 100%; }
+    }
+
     section { padding: 100px 60px; }
     .section-label { font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
     .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; line-height: 1.1; color: var(--dark); }
@@ -123,55 +124,35 @@
 
     .calendly-section { background: var(--cream); text-align: center; padding: 100px 60px; }
     .calendly-box { max-width: 600px; margin: 60px auto 0; border: 1px solid rgba(201,168,76,0.3); padding: 60px 40px; background: white; }
-.glow-cta {
-  position: relative;
-  display: inline-block;
-  margin-top: 28px;
-  padding: 18px 52px;
-  background: var(--gold);
-  color: var(--dark);
-  text-decoration: none;
-  font-size: 0.75rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  transition: all 0.3s;
-  z-index: 1;
-}
-.glow-cta::before {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  z-index: -1;
-  background: conic-gradient(from 0deg, transparent 0%, var(--gold-light) 15%, transparent 30%);
-  animation: rotateBorder 3s linear infinite;
-}
-@keyframes rotateBorder {
-  to { transform: rotate(360deg); }
-}
-.memberships-section {
-  background: #F5EFE4;
-  position: relative;
-}
-.memberships-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: linear-gradient(to bottom, var(--cream), #F5EFE4);
-  pointer-events: none;
-}
-.memberships-section::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 1px;
-  background: var(--gold);
-}    .plan-tabs { display: flex; gap: 2px; justify-content: center; margin-bottom: 60px; flex-wrap: wrap; }
+    .glow-cta {
+      position: relative;
+      display: inline-block;
+      margin-top: 28px;
+      padding: 18px 52px;
+      background: var(--gold);
+      color: var(--dark);
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+    .glow-cta::after {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: var(--gold-light);
+      border-radius: 50%;
+      box-shadow: 0 0 10px 3px var(--gold-light);
+      offset-path: inset(0);
+      animation: runBorder 3s linear infinite;
+    }
+    @keyframes runBorder {
+      to { offset-distance: 100%; }
+    }
+    .memberships-section { background: #F5EFE4; }
+    .plan-tabs { display: flex; gap: 2px; justify-content: center; margin-bottom: 60px; flex-wrap: wrap; }
     .plan-tab { padding: 12px 32px; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; cursor: pointer; background: rgba(26,18,8,0.08); color: var(--muted); transition: all 0.3s; border: none; font-family: 'Josefin Sans', sans-serif; }
     .plan-tab.active { background: var(--dark); color: var(--gold); }
     .plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; max-width: 1000px; margin: 0 auto; }
@@ -243,16 +224,16 @@
       50% { transform: translate(-50%, -50%) scale(1.03) translateY(-8px); }
     }
 
-@keyframes harpOutlineFade {
-  0%, 40% { opacity: 0.06; }
-  50%, 90% { opacity: 0; }
-  100% { opacity: 0.06; }
-}
-@keyframes harpRealisticFade {
-  0%, 40% { opacity: 0; }
-  50%, 90% { opacity: 0.18; }
-  100% { opacity: 0; }
-}
+    @keyframes harpOutlineFade {
+      0%, 40% { opacity: 0.06; }
+      50%, 90% { opacity: 0; }
+      100% { opacity: 0.06; }
+    }
+    @keyframes harpRealisticFade {
+      0%, 40% { opacity: 0; }
+      50%, 90% { opacity: 0.18; }
+      100% { opacity: 0; }
+    }
 
     @keyframes twinkle {
       0%, 100% { opacity: 0.1; transform: scale(1); }
@@ -336,7 +317,7 @@
     <line x1="133" y1="30" x2="88" y2="360" stroke="#C9A84C" stroke-width="1.5" opacity="0.6"/>
     <line x1="152" y1="34" x2="107" y2="360" stroke="#C9A84C" stroke-width="1.5" opacity="0.6"/>
     <line x1="168" y1="45" x2="128" y2="360" stroke="#C9A84C" stroke-width="1.5" opacity="0.6"/>
-   <line x1="179" y1="62" x2="150" y2="360" stroke="#C9A84C" stroke-width="1.5" opacity="0.6"/>
+    <line x1="179" y1="62" x2="150" y2="360" stroke="#C9A84C" stroke-width="1.5" opacity="0.6"/>
   </svg>
 
   <svg class="harp-deco harp-realistic" viewBox="0 0 200 400" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -416,7 +397,7 @@
   <p style="margin-top: 16px; font-size: 0.85rem; color: var(--muted);">Sin compromiso. Alfredo quiere conocerte primero.</p>
   <div class="calendly-box">
     <p style="font-size: 0.9rem; line-height: 1.9; color: var(--text);">Antes de empezar, Alfredo quiere conocerte. Reservá una llamada gratuita de 15–20 minutos para charlar sobre tus metas, tu nivel actual y cómo podemos ayudarte.</p>
-<a href="https://calendly.com/alfredoportillo199/30min" class="glow-cta">
+    <a href="https://calendly.com/alfredoportillo199/30min" class="glow-cta">
       → Reservar llamada gratis
     </a>
     <p style="margin-top: 20px; font-size: 0.65rem; color: rgba(0,0,0,0.3); letter-spacing: 0.1em;">Sin compromiso · 100% online · Zoom</p>
