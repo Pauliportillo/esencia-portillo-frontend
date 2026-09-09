@@ -138,16 +138,39 @@
       transition: all 0.3s;
     }
     .glow-cta::after {
-      content: '';
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      background: var(--gold-light);
-      border-radius: 50%;
-      box-shadow: 0 0 10px 3px var(--gold-light);
-      offset-path: inset(0);
-      animation: runBorder 3s linear infinite;
-    }
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--gold-light);
+  border-radius: 50%;
+  box-shadow: 0 0 10px 3px var(--gold-light);
+  offset-path: inset(0);
+  animation: runBorder 3s linear infinite;
+  z-index: 2;
+}
+.glow-cta {
+  overflow: hidden;
+}
+.glow-cta .strings {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.glow-cta .strings span {
+  position: absolute;
+  width: 1px;
+  height: 140%;
+  background: rgba(250,246,239,0.5);
+  bottom: -20%;
+  transform-origin: bottom;
+  transform: scaleY(0) rotate(35deg);
+  transition: transform 0.4s ease;
+}
+.glow-cta:hover .strings span {
+  transform: scaleY(1) rotate(35deg);
+}
     @keyframes runBorder {
       to { offset-distance: 100%; }
     }
@@ -397,7 +420,15 @@
   <p style="margin-top: 16px; font-size: 0.85rem; color: var(--muted);">Sin compromiso. Alfredo quiere conocerte primero.</p>
   <div class="calendly-box">
     <p style="font-size: 0.9rem; line-height: 1.9; color: var(--text);">Antes de empezar, Alfredo quiere conocerte. Reservá una llamada gratuita de 15–20 minutos para charlar sobre tus metas, tu nivel actual y cómo podemos ayudarte.</p>
-    <a href="https://calendly.com/alfredoportillo199/30min" class="glow-cta">
+   <a href="https://calendly.com/alfredoportillo199/30min" class="glow-cta">
+      <span class="strings">
+        <span style="left:10%;"></span>
+        <span style="left:25%;"></span>
+        <span style="left:40%;"></span>
+        <span style="left:55%;"></span>
+        <span style="left:70%;"></span>
+        <span style="left:85%;"></span>
+      </span>
       → Reservar llamada gratis
     </a>
     <p style="margin-top: 20px; font-size: 0.65rem; color: rgba(0,0,0,0.3); letter-spacing: 0.1em;">Sin compromiso · 100% online · Zoom</p>
