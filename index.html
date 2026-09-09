@@ -124,9 +124,11 @@
 
     .calendly-section { background: var(--cream); text-align: center; padding: 100px 60px; }
     .calendly-box { max-width: 600px; margin: 60px auto 0; border: 1px solid rgba(201,168,76,0.3); padding: 60px 40px; background: white; }
+
     .glow-cta {
       position: relative;
       display: inline-block;
+      overflow: visible;
       margin-top: 28px;
       padding: 18px 52px;
       background: var(--gold);
@@ -135,45 +137,49 @@
       font-size: 0.75rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      transition: all 0.3s;
+      transition: background 0.3s;
     }
-    .glow-cta::after {
-  content: '';
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: var(--gold-light);
-  border-radius: 50%;
-  box-shadow: 0 0 10px 3px var(--gold-light);
-  offset-path: inset(0);
-  animation: runBorder 3s linear infinite;
-  z-index: 2;
-}
-.glow-cta {
-  overflow: hidden;
-}
-.glow-cta .strings {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-.glow-cta .strings span {
-  position: absolute;
-  width: 1px;
-  height: 140%;
-  background: rgba(250,246,239,0.5);
-  bottom: -20%;
-  transform-origin: bottom;
-  transform: scaleY(0) rotate(35deg);
-  transition: transform 0.4s ease;
-}
-.glow-cta:hover .strings span {
-  transform: scaleY(1) rotate(35deg);
-}
-    @keyframes runBorder {
-      to { offset-distance: 100%; }
+    .glow-cta:hover {
+      background: #B8973F;
     }
+    .glow-cta .border-draw {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .glow-cta .border-draw rect {
+      fill: none;
+      stroke: var(--gold-light);
+      stroke-width: 2;
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      transition: stroke-dashoffset 0.9s ease-in-out;
+    }
+    .glow-cta:hover .border-draw rect {
+      stroke-dashoffset: 0;
+    }
+    .glow-cta .strings {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .glow-cta .strings span {
+      position: absolute;
+      width: 2px;
+      height: 140%;
+      background: linear-gradient(to top, transparent, var(--gold-light) 35%, rgba(250,246,239,0.9));
+      bottom: -20%;
+      transform-origin: bottom;
+      transform: scaleY(0) rotate(35deg);
+      transition: transform 0.4s ease;
+    }
+    .glow-cta:hover .strings span {
+      transform: scaleY(1) rotate(35deg);
+    }
+
     .memberships-section { background: #F5EFE4; }
     .plan-tabs { display: flex; gap: 2px; justify-content: center; margin-bottom: 60px; flex-wrap: wrap; }
     .plan-tab { padding: 12px 32px; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; cursor: pointer; background: rgba(26,18,8,0.08); color: var(--muted); transition: all 0.3s; border: none; font-family: 'Josefin Sans', sans-serif; }
@@ -420,7 +426,7 @@
   <p style="margin-top: 16px; font-size: 0.85rem; color: var(--muted);">Sin compromiso. Alfredo quiere conocerte primero.</p>
   <div class="calendly-box">
     <p style="font-size: 0.9rem; line-height: 1.9; color: var(--text);">Antes de empezar, Alfredo quiere conocerte. Reservá una llamada gratuita de 15–20 minutos para charlar sobre tus metas, tu nivel actual y cómo podemos ayudarte.</p>
-   <a href="https://calendly.com/alfredoportillo199/30min" class="glow-cta">
+    <a href="https://calendly.com/alfredoportillo199/30min" class="glow-cta">
       <span class="strings">
         <span style="left:10%;"></span>
         <span style="left:25%;"></span>
@@ -429,6 +435,9 @@
         <span style="left:70%;"></span>
         <span style="left:85%;"></span>
       </span>
+      <svg class="border-draw" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <rect x="1" y="1" width="98" height="98" pathLength="100"/>
+      </svg>
       → Reservar llamada gratis
     </a>
     <p style="margin-top: 20px; font-size: 0.65rem; color: rgba(0,0,0,0.3); letter-spacing: 0.1em;">Sin compromiso · 100% online · Zoom</p>
