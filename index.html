@@ -28,18 +28,26 @@
     .mobile-menu a { color: var(--cream); text-decoration: none; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; letter-spacing: 0.1em; }
     .mobile-menu a:hover { color: var(--gold); }
     .mobile-menu-back {
-  position: absolute;
-  bottom: 48px;
-  font-size: 0.75rem !important;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(250,246,239,0.4) !important;
-  font-family: 'Josefin Sans', sans-serif !important;
-}
+      position: absolute;
+      bottom: 48px;
+      font-size: 0.75rem !important;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(250,246,239,0.4) !important;
+      font-family: 'Josefin Sans', sans-serif !important;
+    }
 
     header { position: relative; background: var(--dark); min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 40px 60px; overflow: hidden; }
     header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(201,168,76,0.12) 0%, transparent 70%); pointer-events: none; }
-    .harp-deco { position: absolute; opacity: 0.06; width: 320px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    .harp-deco {
+      position: absolute;
+      opacity: 0.06;
+      width: 320px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(3);
+      animation: harpZoomIn 3.5s ease-out forwards;
+    }
     .hero-eyebrow { font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; animation: fadeUp 1s 0.2s both; }
     .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 8vw, 7rem); font-weight: 300; color: var(--cream); line-height: 0.95; animation: fadeUp 1s 0.4s both; }
     .hero-title em { font-style: italic; color: var(--gold-light); }
@@ -135,6 +143,17 @@
     .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
 
     @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+    @keyframes harpZoomIn {
+      from {
+        transform: translate(-50%, -50%) scale(3);
+        opacity: 0;
+      }
+      to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.06;
+      }
+    }
 
     /* ===== MOBILE ===== */
     @media (max-width: 768px) {
@@ -416,7 +435,7 @@
   <div class="masterclass-inner">
     <p class="section-label" style="color: var(--gold-light); letter-spacing: 0.6em;">Solo para los mejores</p>
     <h2 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 300; color: var(--cream); line-height: 1; margin-bottom: 8px;">Master<em style="font-style: italic; color: var(--gold-light);">class</em></h2>
-    <p style="font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: rgba(250,246,239,0.55); margin-bottom: 48px;">con Alfredo Portillo</p>
+    <p style="font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: rgba(250,246,239,0.3); margin-bottom: 48px;">con Alfredo Portillo</p>
     <div style="width: 60px; height: 1px; background: var(--gold); margin: 0 auto 48px;"></div>
     <p style="font-size: 0.9rem; line-height: 2; color: rgba(250,246,239,0.55); max-width: 600px; margin: 0 auto 64px;">Una experiencia reservada para músicos avanzados que buscan llevar su técnica al límite. Sesiones intensivas, personalizadas y únicas con el maestro Alfredo Portillo. No es para todos — es para quienes están listos.</p>
     <div class="masterclass-stats">
@@ -436,7 +455,7 @@
     <a href="https://calendly.com/alfredoportillo199/30min" style="display: inline-block; padding: 18px 56px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; transition: all 0.4s;">
       Consultar disponibilidad
     </a>
-    <p style="margin-top: 20px; font-size: 0.6rem; letter-spacing: 0.2em; color: rgba(250,246,239,0.55); text-transform: uppercase;">Plazas muy limitadas</p>
+    <p style="margin-top: 20px; font-size: 0.6rem; letter-spacing: 0.2em; color: rgba(250,246,239,0.2); text-transform: uppercase;">Plazas muy limitadas</p>
   </div>
 </section>
 
@@ -462,9 +481,8 @@
         <img src="https://play-lh.googleusercontent.com/-WB4u-r62cAEy8kImGb4-pXGcr2T-nC71c54xJO4m1aIRtKb2eI2pW_rm7AZg6tEpOL1ZTdIiozUMHgA6eZFl9Y" height="24" alt="Mercado Pago" style="object-fit: contain;">
         <span style="font-family: Arial, sans-serif; font-size: 0.72rem; font-weight: 700; color: #009EE3;">mercado pago</span>
       </div>
-      
     </div>
-    <p style="margin-top: 16px; font-size: 0.58rem; letter-spacing: 0.2em; color: rgba(250,246,239,0.55); text-transform: uppercase;">Transacciones 100% seguras</p>
+    <p style="margin-top: 16px; font-size: 0.58rem; letter-spacing: 0.2em; color: rgba(250,246,239,0.2); text-transform: uppercase;">Transacciones 100% seguras</p>
   </div>
 </section>
 
@@ -472,8 +490,8 @@
   <div class="footer-grid">
     <div>
       <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: #E8D08A; margin-bottom: 8px;">Esencia<br>Portillo</div>
-      <p style="font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(250,246,239,0.55); margin-bottom: 4px;">Escuela Latinoamericana de Arpa</p>
-      <p style="font-size: 0.6rem; letter-spacing: 0.2em; color: rgba(250,246,239,0.55); text-transform: uppercase; font-style: italic; font-family: 'Cormorant Garamond', serif;">Arte con Claridad</p>
+      <p style="font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(250,246,239,0.3); margin-bottom: 4px;">Escuela Latinoamericana de Arpa</p>
+      <p style="font-size: 0.6rem; letter-spacing: 0.2em; color: rgba(250,246,239,0.2); text-transform: uppercase; font-style: italic; font-family: 'Cormorant Garamond', serif;">Arte con Claridad</p>
     </div>
     <div>
       <h4 style="font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px;">Navegación</h4>
@@ -496,11 +514,11 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p style="font-size: 0.62rem; color: rgba(192, 188, 179, 0.55); letter-spacing: 0.15em;">© 2025 Esencia Portillo · Escuela Latinoamericana de Arpa · Todos los derechos reservados</p>
+    <p style="font-size: 0.62rem; color: rgba(192, 188, 179, 0.55); letter-spacing: 0.15em;">©️ 2025 Esencia Portillo · Escuela Latinoamericana de Arpa · Todos los derechos reservados</p>
     <div class="footer-links">
-      <a href="#" style="font-size: 0.62rem; color: rgba(250,246,239,0.55); text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em;">Aviso Legal</a>
-      <a href="#" style="font-size: 0.62rem; color: rgba(250,246,239,0.55); text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em;">Política de Privacidad</a>
-      <a href="#" style="font-size: 0.62rem; color: rgba(250,246,239,0.55); text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em;">Términos y Condiciones</a>
+      <a href="#" style="font-size: 0.62rem; color: rgba(250,246,239,0.35); text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em;">Aviso Legal</a>
+      <a href="#" style="font-size: 0.62rem; color: rgba(250,246,239,0.35); text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em;">Política de Privacidad</a>
+      <a href="#" style="font-size: 0.62rem; color: rgba(250,246,239,0.35); text-decoration: none; text-transform: uppercase; letter-spacing: 0.12em;">Términos y Condiciones</a>
     </div>
   </div>
 </footer>
@@ -538,7 +556,6 @@
       if (data.url) {
         window.location.href = data.url;
       } else {
-        
         alert('Error al procesar el pago. Intentá de nuevo.');
       }
     } catch (error) {
