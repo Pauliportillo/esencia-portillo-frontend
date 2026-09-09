@@ -70,8 +70,30 @@
     .hero-divider { width: 60px; height: 1px; background: var(--gold); margin: 36px auto; animation: fadeUp 1s 0.7s both; }
     .hero-cta { display: inline-block; padding: 14px 40px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; transition: all 0.4s; animation: fadeUp 1s 0.9s both; }
     .hero-cta:hover { background: var(--gold); color: var(--dark); }
-    .ribbon { position: absolute; bottom: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.ribbon {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: rgba(201,168,76,0.15);
+  overflow: hidden;
+}
+.ribbon::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+  animation: ribbonSweep 4s linear infinite;
+}
 
+@keyframes ribbonSweep {
+  0% { left: -50%; }
+  100% { left: 100%; }
+}
     section { padding: 100px 60px; }
     .section-label { font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
     .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; line-height: 1.1; color: var(--dark); }
